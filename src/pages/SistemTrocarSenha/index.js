@@ -62,7 +62,7 @@ const TrocarSenha = () => {
     handleClose()
     try {
       const response = await api.post(`/forgot-my-password/`, { email })
-      localStorage.setItem("sindicatoRural@tokenPass", response.data.token)
+      localStorage.setItem(painel.tokenSenha, response.data.token)
       setComponent("ValidarCodigo")
       handleClose()
     } catch (error) {
@@ -74,12 +74,12 @@ const TrocarSenha = () => {
   const handleCodigo = async (codigo) => {
     handleClose()
     try {
-      const token = localStorage.getItem("sindicatoRural@tokenPass")
+      const token = localStorage.getItem(painel.tokenSenha)
       const config = {
         headers: { Authentication: token },
       }
       const response = await api.post(`/forgot-my-password/${codigo}`, codigo, config)
-      localStorage.setItem("sindicatoRural@tokenPass", response.data.token)
+      localStorage.setItem(painel.tokenSenha, response.data.token)
       setComponent("NovaSenha")
       handleClose()
     } catch (error) {
@@ -90,12 +90,12 @@ const TrocarSenha = () => {
 
   const handleNewPass = async (pass) => {
     try {
-      const token = localStorage.getItem("sindicatoRural@tokenPass")
+      const token = localStorage.getItem(painel.tokenSenha)
       const config = {
         headers: { Authentication: token },
       }
       const response = await api.put(`/new-password/`, { password: pass }, config)
-      localStorage.removeItem("sindicatoRural@tokenPass")
+      localStorage.removeItem(painel.tokenSenha)
       setModal(true)
     } catch (error) {
       setAlert(submitMsg(0, error, "Ocorreu algum problema! Tente Novamente!"))

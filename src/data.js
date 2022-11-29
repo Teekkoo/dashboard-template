@@ -7,7 +7,6 @@ const painel = {
   dataUSer: "ModeloPainel@User",
   tokenUser: "ModeloPainel@TokenUser",
   tokenSenha: "ModeloPainel@TokenSenha",
-  tokenApp: "ModeloPainel@app",
 }
 
 export default painel

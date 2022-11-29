@@ -52,6 +52,8 @@ const Login = () => {
     try {
       const response = "realiza requisição"
       console.log(response)
+      localStorage.setItem(painel.tokenUser, "token do usuario")
+      localStorage.setItem(painel.dataUSer, "dados do usuario")
       navigate(rotas.painel)
       handleClose()
     } catch (error) {

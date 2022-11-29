@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material"
+import "./App.css"
+import Rotas from "./router"
 
 function App() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#d52fde",
+      },
+      error: {
+        main: "#d32f2f",
+      },
+    },
+    typography: {
+      h1: {
+        fontWeight: "bold",
+        fontSize: "min(9vw, 2.5rem)",
+        textAlign: "center",
+      },
+      h2: {
+        fontWeight: "bold",
+        fontSize: "min(7vw, 2rem)",
+        textAlign: "center",
+      },
+      h3: {
+        fontWeight: "bold",
+        fontSize: "min(5.5vw, 1.5rem)",
+        textAlign: "center",
+      },
+      h4: {
+        fontWeight: "bold",
+        fontSize: "min(4.4vw, 1rem)",
+      },
+    },
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Rotas />
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
